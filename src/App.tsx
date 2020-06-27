@@ -1,10 +1,10 @@
 import React from 'react';
-
+import { Router } from './components/index'
 function App() {
   return (
-    <div>
-        Hello world
-    </div>
+    <>
+      <Router />
+    </>
   );
 }
 
