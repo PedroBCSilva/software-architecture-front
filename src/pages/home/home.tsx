@@ -1,11 +1,13 @@
 import React from 'react'
 
-import { Header } from '../../components/index'
+import { Header, WorkingProgress } from '../../components/index';
+import { Container } from './style';
 
 export default function HomePage() {
     return (
-        <div>
+        <Container>
             <Header />
-        </div>
+            <WorkingProgress />
+        </Container>
     )
 }
