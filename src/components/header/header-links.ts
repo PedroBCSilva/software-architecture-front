@@ -1,5 +1,3 @@
-import { Home } from "../../pages";
-
 export interface Link {
     name: string,
     link: string
