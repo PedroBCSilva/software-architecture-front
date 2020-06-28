@@ -1,4 +1,4 @@
-import Home from './home/home'
+import HomePage from './home/home'
 export {
-    Home
+    HomePage
 }
