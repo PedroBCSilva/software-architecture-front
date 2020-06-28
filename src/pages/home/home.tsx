@@ -1,13 +1,11 @@
 import React from 'react'
 
-import { Header, WorkingProgress } from '../../components/index';
-import { Container } from './style';
+import { PageWrapper, WorkingProgress } from '../../components/index';
 
 export default function HomePage() {
     return (
-        <Container>
-            <Header />
+        <PageWrapper>
             <WorkingProgress />
-        </Container>
+        </PageWrapper>
     )
 }
