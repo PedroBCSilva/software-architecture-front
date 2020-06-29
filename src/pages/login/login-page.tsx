@@ -8,7 +8,7 @@ export default class LoginPage extends Component {
         super(props)
     }
 
-    renderLoginForm() {
+    renderLoginForm(): JSX.Element {
         return (
             <>
                 <FormTitle>Login</FormTitle>
