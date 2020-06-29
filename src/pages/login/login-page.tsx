@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
 import { PageWrapper } from '../../components/index'
-import { Card } from '../../common-style/index'
-import { PageContentContainer, CardContent, FormTitle, FormLabel, FormInput, LoginButton, LoginButtonWrapper } from './style'
+import { Card, FormTitle, FormLabel, FormInput, } from '../../common-style/index'
+import { PageContentContainer, CardContent, LoginButton, LoginButtonWrapper } from './style'
 
 export default class LoginPage extends Component {
-    constructor(props:any){
+    constructor(props: any) {
         super(props)
     }
 
