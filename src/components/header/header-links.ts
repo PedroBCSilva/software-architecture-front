@@ -13,10 +13,6 @@ export const HeaderLinks:Link[] = [
         link: '/produtos'
     },
     {
-        name: 'Minha conta',
-        link: '/minha-conta'
-    },
-    {
         name: 'Login',
         link: '/login'
     },
