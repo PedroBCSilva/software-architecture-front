@@ -8,11 +8,6 @@ export const PageContentContainer = styled.div`
     min-height: 100vh
 `;
 
-export const CardContent = styled.div`
-    background: white;
-    padding: 5px 10px;
-`;
-
 export const LoginButtonWrapper = styled.div`
     width: 100%;
     display: flex;
