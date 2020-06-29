@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 import { PageWrapper } from '../../components/index'
 import { Card, FormTitle, FormLabel, FormInput, } from '../../common-style/index'
-import { PageContentContainer, CardContent, LoginButton, LoginButtonWrapper } from './style'
+import { PageContentContainer, LoginButton, LoginButtonWrapper } from './style'
+import './login-page.css'
 
 export default class LoginPage extends Component {
     constructor(props: any) {
@@ -27,10 +28,8 @@ export default class LoginPage extends Component {
 
     renderLoginFormCard(): JSX.Element {
         return (
-            <Card>
-                <CardContent>
-                    {this.renderLoginForm()}
-                </CardContent>
+            <Card className="login-card-container">
+                {this.renderLoginForm()}
             </Card>
         )
     }
