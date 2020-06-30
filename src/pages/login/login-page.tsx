@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 import { PageWrapper } from '../../components/index'
-import { Card, FormTitle, FormLabel, FormInput, } from '../../common-style/index'
+import { Card, FormTitle, FormLabel, FormInput, Link, } from '../../common-style/index'
 import { PageContentContainer, LoginButton, LoginButtonWrapper } from './style'
+import { RoutePaths } from '../../constants/routes'
 import './login-page.css'
 
 export default class LoginPage extends Component {
@@ -17,6 +18,7 @@ export default class LoginPage extends Component {
                 <FormInput id='email' type='text' />
                 <FormLabel htmlFor='password'>Password</FormLabel>
                 <FormInput id='password' type='password' />
+                <Link href={RoutePaths.REGISTER}>Não tem conta? Clique aqui para se cadastrar</Link>
                 <LoginButtonWrapper>
                     <LoginButton>
                         Entrar
