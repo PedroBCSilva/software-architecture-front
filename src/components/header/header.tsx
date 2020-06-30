@@ -1,6 +1,7 @@
 import React from 'react';
-import { Container, Title, LinksContainer, Link } from './style';
+import { Container, Title, LinksContainer } from './style';
 import { HeaderLinks } from './header-links';
+import { Link } from '../../common-style/index'
 
 const renderLinks = function () {
     return HeaderLinks.map((link, index) =>{

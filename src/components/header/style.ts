@@ -24,13 +24,3 @@ export const LinksContainer = styled.div`
     justify-content: space-evenly;
     width: 40%;
 `;
-
-export const Link = styled.a`
-    transition: color 0.2s ease-in-out;
-    color: #555f66;
-    display: inline-block;
-    text-decoration: none;
-    &:hover {
-        color: #629DD1;
-    }
-`
