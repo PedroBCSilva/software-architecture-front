@@ -1,6 +1,6 @@
 import React from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
-import { RoutePaths } from '../../constants/routes';
+import { RoutePaths } from '../../../constants/routes';
 import { HomePage, LoginPageConnected, RegisterPage, } from '../../pages/index'
 
 export default function Router(){

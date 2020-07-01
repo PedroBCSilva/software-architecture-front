@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { PageWrapper } from '../../components/index'
 import { Card, FormTitle, FormLabel, FormInput, } from '../../common-style/index'
 import { PageContentContainer, ButtonsContainer, RegisterButton, ReturnToLoginLink } from './style'
-import { RoutePaths } from '../../constants/routes'
+import { RoutePaths } from '../../../constants/routes'
 import './register-page.css'
 
 export default class RegisterPage extends Component {

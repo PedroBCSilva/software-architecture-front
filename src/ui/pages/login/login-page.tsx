@@ -2,10 +2,10 @@ import React, { Component } from 'react'
 import { PageWrapper } from '../../components/index'
 import { Card, FormTitle, FormLabel, FormInput, Link, } from '../../common-style/index'
 import { PageContentContainer, LoginButton, LoginButtonWrapper } from './style'
-import { RoutePaths } from '../../constants/routes'
+import { RoutePaths } from '../../../constants/routes'
 import { connect } from 'react-redux'
 import * as map from './login-page-map'
-import { User } from '../../types/user'
+import { User } from '../../../types/user'
 import './login-page.css'
 
 interface LoginPageProps {
