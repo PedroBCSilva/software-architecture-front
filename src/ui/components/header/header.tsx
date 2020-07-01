@@ -1,21 +1,31 @@
 import React from 'react';
 import { Container, Title, LinksContainer } from './style';
-import { HeaderLinks } from './header-links';
+import { HeaderLinks,LoggedUserHeaderLinks,LinkType } from './header-links';
 import { Link } from '../../common-style/index'
+import * as map from './header-map'
+import { connect } from 'react-redux'
+import { User } from '../../../types/user'
 
-const renderLinks = function () {
-    return HeaderLinks.map((link, index) =>{
-    return <Link href={link.link} key={index}>{link.name}</Link>
+const renderLinks = function (links: LinkType[]) {
+    return links.map((link, index) => {
+        return <Link href={link.link} key={index}>{link.name}</Link>
     })
 }
 
-export default function Header(): JSX.Element {
+interface HeaderProps {
+    loggedUser: User
+}
+
+function Header(props: HeaderProps): JSX.Element {
+    const links = props.loggedUser ? LoggedUserHeaderLinks : HeaderLinks
     return (
         <Container>
             <Title>Seja bem vindo a Nutrição ABC</Title>
             <LinksContainer>
-                {renderLinks()}
+                {renderLinks(links)}
             </LinksContainer>
         </Container>
     )
 }
+
+export default connect(map.mapStateToProps, map.mapActionsToProps)(Header)
