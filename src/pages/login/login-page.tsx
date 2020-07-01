@@ -3,10 +3,19 @@ import { PageWrapper } from '../../components/index'
 import { Card, FormTitle, FormLabel, FormInput, Link, } from '../../common-style/index'
 import { PageContentContainer, LoginButton, LoginButtonWrapper } from './style'
 import { RoutePaths } from '../../constants/routes'
+import { connect } from 'react-redux'
+import * as map from './login-page-map'
+import { User } from '../../types/user'
 import './login-page.css'
 
-export default class LoginPage extends Component {
-    constructor(props: any) {
+interface LoginPageProps {
+    loggedUser?: User,
+    setLoggedUser: () => void
+}
+interface LoginPageState { }
+
+class LoginPage extends Component<LoginPageProps, LoginPageState> {
+    constructor(props: LoginPageProps) {
         super(props)
     }
 
@@ -45,4 +54,10 @@ export default class LoginPage extends Component {
             </PageWrapper>
         )
     }
+}
+
+const LoginPageConnected = connect(map.mapStateToProps, map.mapActionsToProps)(LoginPage)
+export {
+    LoginPageConnected,
+    LoginPage,
 }
