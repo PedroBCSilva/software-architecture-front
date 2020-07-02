@@ -15,3 +15,14 @@ code {
 * {
   box-sizing: border-box;
 }
+
+.link-style { 
+  transition: color 0.2s ease-in-out;
+    color: #555f66;
+    display: inline-block;
+    text-decoration: none;
+}
+
+.link-style:hover {
+  color: #629DD1;
+}

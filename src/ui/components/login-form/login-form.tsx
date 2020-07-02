@@ -1,16 +1,17 @@
 import React, { Component } from 'react'
-import { FormTitle, FormLabel, FormInput, Link, ErrorMessage } from '../../common-style/index'
+import { FormTitle, FormLabel, FormInput, ErrorMessage } from '../../common-style/index'
 import { RoutePaths } from '../../../constants/routes'
 import { LoginButton, LoginButtonWrapper } from './style'
 import { UserLoginRequest, UserSuccesfulResponse, User, UserFailResponse } from '../../../types/user'
 import UserService from '../../../service/user/user-service'
 import { AxiosResponse, AxiosError } from 'axios'
+import { Link } from 'react-router-dom'
 import { connect } from "react-redux";
 import * as maps from './login-form-map'
 
 interface LoginFormProps {
     setLoggedUser: (loggedUser: User) => void
- }
+}
 
 interface LoginFormState {
     email: string
@@ -104,9 +105,9 @@ class LoginForm extends Component<LoginFormProps, LoginFormState> {
                     required
                 />
                 <ErrorMessage>{this.state.formError}</ErrorMessage>
-                <Link href={RoutePaths.REGISTER}>
+                <Link className="link-style" to={RoutePaths.REGISTER}>
                     Não tem conta? Clique aqui para se cadastrar
-                </Link>
+                    </Link>
                 <LoginButtonWrapper>
                     <LoginButton onClick={this.onSubmit} type="submit">
                         Entrar

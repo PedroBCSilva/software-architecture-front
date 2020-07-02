@@ -25,16 +25,6 @@ export const FormInput = styled.input`
     height: 30px;
 `;
 
-export const Link = styled.a`
-    transition: color 0.2s ease-in-out;
-    color: #555f66;
-    display: inline-block;
-    text-decoration: none;
-    &:hover {
-        color: #629DD1;
-    }
-`;
-
 export const ErrorMessage = styled.p`
     color: red;
     font-size: 12px;

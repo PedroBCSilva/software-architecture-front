@@ -1,14 +1,14 @@
 import React from 'react';
 import { Container, Title, LinksContainer } from './style';
-import { HeaderLinks,LoggedUserHeaderLinks,LinkType } from './header-links';
-import { Link } from '../../common-style/index'
+import { HeaderLinks, LoggedUserHeaderLinks, LinkType } from './header-links';
+import { Link } from 'react-router-dom'
 import * as map from './header-map'
 import { connect } from 'react-redux'
 import { User } from '../../../types/user'
 
 const renderLinks = function (links: LinkType[]) {
     return links.map((link, index) => {
-        return <Link href={link.link} key={index}>{link.name}</Link>
+        return <Link className="link-style" to={link.link} key={index}>{link.name}</Link>
     })
 }
 

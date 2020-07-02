@@ -1,13 +1,16 @@
 import React, { Component } from 'react'
-import { ButtonsContainer, RegisterButton, ReturnToLoginLink, } from './style'
+import { ButtonsContainer, RegisterButton, } from './style'
 import { FormTitle, FormLabel, FormInput, ErrorMessage } from '../../common-style/index'
 import { RoutePaths } from '../../../constants/routes'
 import { UserRegisterRequest, UserFailResponse, UserSuccesfulResponse, User, } from '../../../types/user'
 import { checkIfCpfIsValid, checkIfPasswordAndConfirmPasswordAreEqual } from './register-form-validator'
 import UserService from '../../../service/user/user-service'
 import { AxiosResponse, AxiosError } from 'axios'
+import { Link } from 'react-router-dom'
 import { connect } from "react-redux";
 import * as maps from './register-form-map'
+
+import './register-form.css'
 
 interface RegisterFormProps {
     setLoggedUser: (loggedUser: User) => void
@@ -142,7 +145,7 @@ class RegisterForm extends Component<RegisterFormProps, RegisterFormState> {
         return (
             <ButtonsContainer>
                 <RegisterButton onClick={this.onSubmit} type="submit">Criar conta</RegisterButton>
-                <ReturnToLoginLink href={RoutePaths.LOGIN}>Voltar para login</ReturnToLoginLink>
+                <Link className="register-form-return-to-login-link" to={RoutePaths.LOGIN}>Voltar para login</Link>
             </ButtonsContainer>
         )
     }
