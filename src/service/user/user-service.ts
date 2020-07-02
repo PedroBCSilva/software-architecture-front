@@ -6,7 +6,7 @@ export default class UserService {
     static loginRequest(user: UserLoginRequest) {
         return axios({
             method: 'POST',
-            url: `${CONFIG.API_URL}/login`,
+            url: `${CONFIG.API_URL}/authenticate`,
             headers: {
                 'Content-Type': 'application/json',
             },
