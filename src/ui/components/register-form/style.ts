@@ -30,8 +30,3 @@ export const ReturnToLoginLink = styled.a`
     display: inline-block;
     font-size: 16px;
 `;
-
-export const ErrorMessage = styled.p`
-    color: red;
-    font-size: 12px;
-`;

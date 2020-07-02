@@ -34,3 +34,8 @@ export const Link = styled.a`
         color: #629DD1;
     }
 `;
+
+export const ErrorMessage = styled.p`
+    color: red;
+    font-size: 12px;
+`;

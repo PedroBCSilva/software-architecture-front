@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
-import { ButtonsContainer, RegisterButton, ReturnToLoginLink, ErrorMessage, } from './style'
-import { FormTitle, FormLabel, FormInput, } from '../../common-style/index'
+import { ButtonsContainer, RegisterButton, ReturnToLoginLink, } from './style'
+import { FormTitle, FormLabel, FormInput, ErrorMessage } from '../../common-style/index'
 import { RoutePaths } from '../../../constants/routes'
 
 import { checkIfCpfIsValid, checkIfPasswordAndConfirmPasswordAreEqual } from './register-form-validator'
