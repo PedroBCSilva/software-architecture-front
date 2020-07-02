@@ -4,16 +4,24 @@ export interface User {
     lastName: string
 }
 
-export interface UserLoginSuccesfulResponse {
+export interface UserSuccesfulResponse {
     user: User
     token: string
 }
 
-export interface UserLoginFailResponse {
+export interface UserFailResponse {
     error: string
 }
 
 export interface UserLoginRequest {
     email: string,
     password: string,
+}
+
+export interface UserRegisterRequest {
+    email: string
+    name: string
+    lastname: string
+    cpf: string
+    password: string
 }

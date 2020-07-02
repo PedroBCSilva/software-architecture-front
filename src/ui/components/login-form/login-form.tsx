@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { FormTitle, FormLabel, FormInput, Link, ErrorMessage } from '../../common-style/index'
 import { RoutePaths } from '../../../constants/routes'
 import { LoginButton, LoginButtonWrapper } from './style'
-import { UserLoginRequest, UserLoginSuccesfulResponse, User, UserLoginFailResponse } from '../../../types/user'
+import { UserLoginRequest, UserSuccesfulResponse, User, UserFailResponse } from '../../../types/user'
 import UserService from '../../../service/user/user-service'
 import { AxiosResponse, AxiosError } from 'axios'
 import { connect } from "react-redux";
@@ -69,12 +69,12 @@ class LoginForm extends Component<LoginFormProps, LoginFormState> {
         }
     }
 
-    onSuccessfulLogin(response: AxiosResponse<UserLoginSuccesfulResponse>) {
+    onSuccessfulLogin(response: AxiosResponse<UserSuccesfulResponse>) {
         this.props.setLoggedUser(response.data.user)
         localStorage.setItem('token', response.data.token)
     }
 
-    onFailLogin(error: AxiosError<UserLoginFailResponse>) {
+    onFailLogin(error: AxiosError<UserFailResponse>) {
         this.setState({
             formError: error.response?.data.error
         })
