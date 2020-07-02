@@ -29,6 +29,8 @@ class LoginForm extends Component<LoginFormProps, LoginFormState> {
 
         this.handleChange = this.handleChange.bind(this)
         this.onSubmit = this.onSubmit.bind(this)
+        this.onSuccessfulLogin = this.onSuccessfulLogin.bind(this)
+        this.onFailLogin = this.onFailLogin.bind(this)
     }
 
     handleChange(event: React.ChangeEvent<HTMLInputElement>, callback = () => { }) {
