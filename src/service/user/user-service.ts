@@ -1,9 +1,9 @@
-import axios from 'axios'
+import axios, { AxiosPromise } from 'axios'
 import CONFIG from '../../config/environment.local.config'
-import { UserLoginRequest } from '../../types/user'
+import { UserLoginRequest, UserRegisterRequest, } from '../../types/user'
 
 export default class UserService {
-    static loginRequest(user: UserLoginRequest) {
+    static loginRequest(user: UserLoginRequest): AxiosPromise {
         return axios({
             method: 'POST',
             url: `${CONFIG.API_URL}/authenticate`,
@@ -13,7 +13,19 @@ export default class UserService {
             data: {
                 user,
             }
-        }
-        )
+        })
+    }
+
+    static registerUser(newUserData: UserRegisterRequest): AxiosPromise {
+        return axios({
+            method: 'POST',
+            url: `${CONFIG.API_URL}/register`,
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            data: {
+                user: newUserData,
+            }
+        })
     }
 }

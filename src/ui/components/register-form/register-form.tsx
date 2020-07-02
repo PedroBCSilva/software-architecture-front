@@ -2,10 +2,16 @@ import React, { Component } from 'react'
 import { ButtonsContainer, RegisterButton, ReturnToLoginLink, } from './style'
 import { FormTitle, FormLabel, FormInput, ErrorMessage } from '../../common-style/index'
 import { RoutePaths } from '../../../constants/routes'
-
+import { UserRegisterRequest, UserFailResponse, UserSuccesfulResponse, User, } from '../../../types/user'
 import { checkIfCpfIsValid, checkIfPasswordAndConfirmPasswordAreEqual } from './register-form-validator'
+import UserService from '../../../service/user/user-service'
+import { AxiosResponse, AxiosError } from 'axios'
+import { connect } from "react-redux";
+import * as maps from './register-form-map'
 
-interface RegisterFormProps { }
+interface RegisterFormProps {
+    setLoggedUser: (loggedUser: User) => void
+ }
 
 type RegisterFormState = {
     email: string
@@ -14,11 +20,12 @@ type RegisterFormState = {
     cpf: string
     password: string
     confirmPassword: string
-    cpfError: string,
-    passwordError: string,
+    cpfError: string
+    passwordError: string
+    formError: string | undefined
 }
 
-export default class RegisterForm extends Component<RegisterFormProps, RegisterFormState> {
+class RegisterForm extends Component<RegisterFormProps, RegisterFormState> {
     constructor(props: RegisterFormProps) {
         super(props)
         this.state = {
@@ -30,12 +37,15 @@ export default class RegisterForm extends Component<RegisterFormProps, RegisterF
             confirmPassword: '',
             cpfError: '',
             passwordError: '',
+            formError: ''
         }
 
         this.handleChange = this.handleChange.bind(this)
         this.handleChangeCPF = this.handleChangeCPF.bind(this)
         this.handleChangePassword = this.handleChangePassword.bind(this)
         this.onSubmit = this.onSubmit.bind(this)
+        this.onSuccessfulRegister = this.onSuccessfulRegister.bind(this)
+        this.onFailRegister = this.onFailRegister.bind(this)
     }
 
     validateCpf(): boolean {
@@ -54,7 +64,7 @@ export default class RegisterForm extends Component<RegisterFormProps, RegisterF
     }
 
     validatePasswords(): boolean {
-        if(!this.state.password || !this.state.confirmPassword){
+        if (!this.state.password || !this.state.confirmPassword) {
             this.setState({
                 passwordError: 'Senhas não podem ser vazias'
             })
@@ -81,11 +91,35 @@ export default class RegisterForm extends Component<RegisterFormProps, RegisterF
         return true
     }
 
-    onSubmit() {
-        if (this.validateForm()) {
-            // register
+    getUserRegisterRequestFromForm(): UserRegisterRequest {
+        return {
+            email: this.state.email,
+            name: this.state.name,
+            lastname: this.state.lastname,
+            cpf: this.state.cpf,
+            password: this.state.password,
         }
     }
+
+    onSubmit() {
+        if (this.validateForm()) {
+            UserService.registerUser(this.getUserRegisterRequestFromForm())
+                .then(this.onSuccessfulRegister)
+                .catch(this.onFailRegister)
+        }
+    }
+
+    onSuccessfulRegister(response: AxiosResponse<UserSuccesfulResponse>) {
+        this.props.setLoggedUser(response.data.user)
+        localStorage.setItem('token', response.data.token)
+    }
+
+    onFailRegister(error: AxiosError<UserFailResponse>) {
+        this.setState({
+            formError: error.response?.data.error
+        })
+    }
+
 
     handleChangePassword(event: React.ChangeEvent<HTMLInputElement>) {
         this.handleChange(event, this.validatePasswords)
@@ -166,3 +200,5 @@ export default class RegisterForm extends Component<RegisterFormProps, RegisterF
         )
     }
 }
+
+export default connect(maps.mapStateToProps, maps.mapActionsToProps)(RegisterForm)
