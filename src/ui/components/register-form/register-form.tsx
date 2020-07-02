@@ -149,7 +149,7 @@ class RegisterForm extends Component<RegisterFormProps, RegisterFormState> {
 
     render(): JSX.Element {
         return (
-            <form onSubmit={this.onSubmit}>
+            <>
                 <FormTitle>Cadastre-se já</FormTitle>
                 <FormLabel>Email</FormLabel>
                 <FormInput name="email"
@@ -197,7 +197,7 @@ class RegisterForm extends Component<RegisterFormProps, RegisterFormState> {
                 <ErrorMessage>{this.state.passwordError}</ErrorMessage>
                 <ErrorMessage>{this.state.formError}</ErrorMessage>
                 {this.renderSubmitButton()}
-            </form>
+            </>
         )
     }
 }
