@@ -12,7 +12,7 @@ export default class UserService {
                 'Content-Type': 'application/json',
             },
             data: {
-                user,
+                ...user,
             }
         })
     }
