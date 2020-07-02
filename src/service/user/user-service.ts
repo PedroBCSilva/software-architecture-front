@@ -1,6 +1,7 @@
 import axios, { AxiosPromise } from 'axios'
 import CONFIG from '../../config/environment.local.config'
 import { UserLoginRequest, UserRegisterRequest, } from '../../types/user'
+import LocalStorageConstants from '../../constants/localstorage'
 
 export default class UserService {
     static loginRequest(user: UserLoginRequest): AxiosPromise {
@@ -27,5 +28,9 @@ export default class UserService {
                 user: newUserData,
             }
         })
+    }
+
+    static setAuthTokenToLocalStorage(token: string){
+        localStorage.setItem(LocalStorageConstants.token, token)
     }
 }
