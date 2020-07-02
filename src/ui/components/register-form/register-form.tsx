@@ -4,7 +4,6 @@ import { FormTitle, FormLabel, FormInput, ErrorMessage } from '../../common-styl
 import { RoutePaths } from '../../../constants/routes'
 
 import { checkIfCpfIsValid, checkIfPasswordAndConfirmPasswordAreEqual } from './register-form-validator'
-import { unwatchFile } from 'fs'
 
 interface RegisterFormProps { }
 
