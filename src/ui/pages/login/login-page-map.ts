@@ -7,12 +7,6 @@ const mapStateToProps = (state: RootStateType) => ({
     loggedUser: state.userReducer.loggedUser,
 })
 
-const mapActionsToProps = (dispatch: Dispatch) => {
-    return {
-        setLoggedUser: (user: User) => {
-            dispatch(loginUserAction(user))
-        }
-    }
-}
+const mapActionsToProps = (dispatch: Dispatch) => { return { } }
 
 export { mapStateToProps, mapActionsToProps}

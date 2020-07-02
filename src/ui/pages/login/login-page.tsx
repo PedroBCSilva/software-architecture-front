@@ -5,11 +5,12 @@ import { PageContentContainer } from './style'
 import { connect } from 'react-redux'
 import * as map from './login-page-map'
 import { User } from '../../../types/user'
+import { Redirect } from 'react-router'
+import { RoutePaths } from '../../../constants/routes'
 import './login-page.css'
 
 interface LoginPageProps {
-    loggedUser?: User,
-    setLoggedUser: () => void
+    loggedUser: User,
 }
 interface LoginPageState { }
 
@@ -29,6 +30,7 @@ class LoginPage extends Component<LoginPageProps, LoginPageState> {
     render(): JSX.Element {
         return (
             <PageWrapper>
+                {this.props.loggedUser && <Redirect to={RoutePaths.HOME}/>}
                 <PageContentContainer>
                     {this.renderLoginFormCard()}
                 </PageContentContainer>
