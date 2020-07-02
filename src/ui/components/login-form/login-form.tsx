@@ -85,7 +85,7 @@ class LoginForm extends Component<LoginFormProps, LoginFormState> {
 
     render(): JSX.Element {
         return (
-            <form onSubmit={this.onSubmit}>
+            <>
                 <FormTitle>Login</FormTitle>
                 <FormLabel htmlFor='email'>Email</FormLabel>
                 <FormInput name='email'
@@ -112,7 +112,7 @@ class LoginForm extends Component<LoginFormProps, LoginFormState> {
                         Entrar
                     </LoginButton>
                 </LoginButtonWrapper>
-            </form>
+            </>
         )
     }
 }
