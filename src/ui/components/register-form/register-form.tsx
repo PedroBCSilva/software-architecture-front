@@ -111,7 +111,7 @@ class RegisterForm extends Component<RegisterFormProps, RegisterFormState> {
 
     onSuccessfulRegister(response: AxiosResponse<UserSuccesfulResponse>) {
         this.props.setLoggedUser(response.data.user)
-        localStorage.setItem('token', response.data.token)
+        UserService.setAuthTokenToLocalStorage(response.data.token)
     }
 
     onFailRegister(error: AxiosError<UserFailResponse>) {

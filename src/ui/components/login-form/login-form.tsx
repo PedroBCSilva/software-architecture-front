@@ -73,7 +73,7 @@ class LoginForm extends Component<LoginFormProps, LoginFormState> {
 
     onSuccessfulLogin(response: AxiosResponse<UserSuccesfulResponse>) {
         this.props.setLoggedUser(response.data.user)
-        localStorage.setItem('token', response.data.token)
+        UserService.setAuthTokenToLocalStorage(response.data.token)
     }
 
     onFailLogin(error: AxiosError<UserFailResponse>) {
