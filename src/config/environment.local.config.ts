@@ -1,3 +1,3 @@
 export default {
-    API_URL: 'http://localhost:3000/auth'
+    API_URL: 'http://localhost:9000/auth'
   }
