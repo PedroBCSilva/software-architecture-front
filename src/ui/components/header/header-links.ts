@@ -1,3 +1,5 @@
+import { RoutePaths } from  '../../../constants/routes'
+
 export interface LinkType {
     name: string,
     link: string
@@ -7,15 +9,15 @@ const HeaderLinks: LinkType[] =
     [
         {
             name: 'Home',
-            link: '/'
+            link: RoutePaths.HOME,
         },
         {
             name: 'Produtos',
-            link: '/produtos'
+            link: RoutePaths.Products,
         },
         {
             name: 'Login',
-            link: '/login'
+            link: RoutePaths.LOGIN,
         },
     ]
 
@@ -23,15 +25,15 @@ const LoggedUserHeaderLinks: LinkType[] =
     [
         {
             name: 'Home',
-            link: '/'
+            link: RoutePaths.HOME,
         },
         {
             name: 'Produtos',
-            link: '/produtos'
+            link: RoutePaths.Products
         },
         {
             name: 'Minha conta',
-            link: '/minha-conta'
+            link: RoutePaths.MyAccount
         }
     ]
 
