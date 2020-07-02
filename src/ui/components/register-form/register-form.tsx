@@ -195,6 +195,7 @@ class RegisterForm extends Component<RegisterFormProps, RegisterFormState> {
                     required
                 />
                 <ErrorMessage>{this.state.passwordError}</ErrorMessage>
+                <ErrorMessage>{this.state.formError}</ErrorMessage>
                 {this.renderSubmitButton()}
             </form>
         )
