@@ -4,6 +4,15 @@ export interface User {
     lastName: string
 }
 
+export interface UserLoginSuccesfulResponse {
+    user: User
+    token: string
+}
+
+export interface UserLoginFailResponse {
+    error: string
+}
+
 export interface UserLoginRequest {
     email: string,
     password: string,

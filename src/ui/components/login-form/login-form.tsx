@@ -2,19 +2,23 @@ import React, { Component } from 'react'
 import { FormTitle, FormLabel, FormInput, Link, ErrorMessage } from '../../common-style/index'
 import { RoutePaths } from '../../../constants/routes'
 import { LoginButton, LoginButtonWrapper } from './style'
-import { UserLoginRequest } from '../../../types/user'
+import { UserLoginRequest, UserLoginSuccesfulResponse, User, UserLoginFailResponse } from '../../../types/user'
 import UserService from '../../../service/user/user-service'
-import { AxiosResponse } from 'axios'
+import { AxiosResponse, AxiosError } from 'axios'
+import { connect } from "react-redux";
+import * as maps from './login-form-map'
 
-interface LoginFormProps { }
+interface LoginFormProps {
+    setLoggedUser: (loggedUser: User) => void
+ }
 
 interface LoginFormState {
     email: string
     password: string
-    formError: string
+    formError: string | undefined
 }
 
-export default class LoginForm extends Component<LoginFormProps, LoginFormState> {
+class LoginForm extends Component<LoginFormProps, LoginFormState> {
     constructor(props: LoginFormProps) {
         super(props)
         this.state = {
@@ -65,12 +69,15 @@ export default class LoginForm extends Component<LoginFormProps, LoginFormState>
         }
     }
 
-    onSuccessfulLogin(response: AxiosResponse) {
-        console.log(response)
+    onSuccessfulLogin(response: AxiosResponse<UserLoginSuccesfulResponse>) {
+        this.props.setLoggedUser(response.data.user)
+        localStorage.setItem('token', response.data.token)
     }
 
-    onFailLogin(error: any) {
-        console.log(error)
+    onFailLogin(error: AxiosError<UserLoginFailResponse>) {
+        this.setState({
+            formError: error.response?.data.error
+        })
     }
 
 
@@ -107,3 +114,4 @@ export default class LoginForm extends Component<LoginFormProps, LoginFormState>
         )
     }
 }
+export default connect(maps.mapStateToProps, maps.mapActionsToProps)(LoginForm)
