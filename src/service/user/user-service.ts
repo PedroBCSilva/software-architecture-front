@@ -25,7 +25,7 @@ export default class UserService {
                 'Content-Type': 'application/json',
             },
             data: {
-                user: newUserData,
+                ...newUserData,
             }
         })
     }
