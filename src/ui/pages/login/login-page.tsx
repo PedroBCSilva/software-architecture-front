@@ -15,10 +15,7 @@ interface LoginPageProps {
 interface LoginPageState { }
 
 class LoginPage extends Component<LoginPageProps, LoginPageState> {
-    constructor(props: LoginPageProps) {
-        super(props)
-    }
-
+    
     renderLoginFormCard(): JSX.Element {
         return (
             <Card className="login-card-container">
