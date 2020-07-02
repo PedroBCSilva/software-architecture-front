@@ -1,8 +1,7 @@
 import React, { Component } from 'react'
-import { PageWrapper } from '../../components/index'
-import { Card, FormTitle, FormLabel, FormInput, Link, } from '../../common-style/index'
-import { PageContentContainer, LoginButton, LoginButtonWrapper } from './style'
-import { RoutePaths } from '../../../constants/routes'
+import { PageWrapper, LoginForm } from '../../components/index'
+import { Card } from '../../common-style/index'
+import { PageContentContainer } from './style'
 import { connect } from 'react-redux'
 import * as map from './login-page-map'
 import { User } from '../../../types/user'
@@ -19,28 +18,10 @@ class LoginPage extends Component<LoginPageProps, LoginPageState> {
         super(props)
     }
 
-    renderLoginForm(): JSX.Element {
-        return (
-            <>
-                <FormTitle>Login</FormTitle>
-                <FormLabel htmlFor='email'>Email</FormLabel>
-                <FormInput id='email' type='text' />
-                <FormLabel htmlFor='password'>Password</FormLabel>
-                <FormInput id='password' type='password' />
-                <Link href={RoutePaths.REGISTER}>Não tem conta? Clique aqui para se cadastrar</Link>
-                <LoginButtonWrapper>
-                    <LoginButton>
-                        Entrar
-                    </LoginButton>
-                </LoginButtonWrapper>
-            </>
-        )
-    }
-
     renderLoginFormCard(): JSX.Element {
         return (
             <Card className="login-card-container">
-                {this.renderLoginForm()}
+                <LoginForm />
             </Card>
         )
     }
