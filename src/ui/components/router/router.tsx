@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import { RoutePaths } from '../../../constants/routes';
-import { HomePage, LoginPageConnected, RegisterPage, } from '../../pages/index'
+import { HomePage, LoginPageConnected, RegisterPageConnected, } from '../../pages/index'
 
 export default function Router(){
     return(
@@ -9,7 +9,7 @@ export default function Router(){
             <Switch>
                 <Route path={RoutePaths.HOME} exact component={HomePage}/>
                 <Route path={RoutePaths.LOGIN} exact component={LoginPageConnected}/>
-                <Route path={RoutePaths.REGISTER} exact component={RegisterPage}/>
+                <Route path={RoutePaths.REGISTER} exact component={RegisterPageConnected}/>
             </Switch>
         </BrowserRouter>
     );

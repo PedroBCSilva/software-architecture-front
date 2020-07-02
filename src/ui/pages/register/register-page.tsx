@@ -4,8 +4,10 @@ import { Card } from '../../common-style/index'
 import { PageContentContainer } from './style'
 import { RegisterForm } from '../../components/index'
 import './register-page.css'
+import { connect } from 'react-redux'
+import * as maps from './register-page-map'
 
-export default class RegisterPage extends Component {
+class RegisterPage extends Component {
 
     renderRegisterCardForm(): JSX.Element {
         return (
@@ -25,3 +27,9 @@ export default class RegisterPage extends Component {
         )
     }
 }
+
+const RegisterPageConnected = connect(maps.mapStateToProps, maps.mapActionsToProps)(RegisterPage)
+export {
+    RegisterPage,
+    RegisterPageConnected,
+} 
